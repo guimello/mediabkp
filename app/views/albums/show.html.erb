@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @album.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @album.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_album_url(@user, @album) %> |
+<%= link_to 'Back', user_albums_url %>

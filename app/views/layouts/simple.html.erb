@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>
+    <% if yield :title %>
+			<%= yield :title %>
+		<% else %>
+			no title fix it
+		<% end %>
+  </title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<div id='user_nav'>
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_url %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_url %> or <%= link_to "Sign in", new_user_session_url %>
+  <% end %>
+</div>
+
+<p class="notice" ><%= flash[:notice] %></p>
+<p class="alert" ><%= flash[:alert] %></p>
+
+<%= yield %>
+
+</body>
+</html>
